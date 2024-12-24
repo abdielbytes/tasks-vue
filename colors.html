@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="changeColor">Click me</button>
+        <p :style="{ color: textColor }">{{ hello }}</p>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    hello: 'hello world',
+                    textColor: 'black'
+                };
+            },
+            methods: {
+                changeColor() {
+                    this.textColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
